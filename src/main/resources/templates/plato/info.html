@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+
+		<h1>Información de Plato</h1>
+		
+		<form th:action="@{/plato/savepedido}" th:object="${pedido}" 
+					method="post">
+					
+					<p>Username: <span th:text = "${usuario.id}" ></span></p>
+					
+					<h2>Nombre de Plato: <span  th:text="${plato.nom_pla}" ></span></h2>
+					<hr>
+					<h1>DESEA PEDIR PLATO ? </h1>
+					
+					<button type="submit" class="btn btn-primary">
+						<i class="fas fa-save"></i> confirmar
+					</button>
+					<a th:href="@{/plato}" class="btn btn-danger"> 
+						<i class="fas fa-undo"></i> Cancelar 
+					</a>
+				</form>
+		
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
