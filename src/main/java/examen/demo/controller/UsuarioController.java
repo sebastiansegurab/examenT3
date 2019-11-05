@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -110,6 +112,26 @@ public class UsuarioController {
 			// TODO: handle exception
 		}
 		return "/login";
+	}
+	
+	
+	@GetMapping("verid")
+	public String verId(Model model) {
+		// Para obtener el username
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		try {
+			Optional<Usuario> optional 
+				= usuarioService.findByUsername(username);
+			if(optional.isPresent()) {
+				model.addAttribute("usuario", optional.get());
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return "/usuario/verid";
+		
 	}
 }
 

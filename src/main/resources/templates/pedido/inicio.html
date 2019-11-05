@@ -23,7 +23,7 @@
 							<th scope="col">Codigo</th>
 							<th scope="col">Nombre del Plato</th>
 							<th scope="col">Precio</th>
-							
+							<th scope="col">Nombre y apellido del usuario</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
@@ -32,6 +32,7 @@
 							<th scope="row" th:text="${plato.id_ped}"></th>
 							<td th:text="${plato.plato.nom_pla}"></td>
 							<td th:text="${plato.plato.pre_pla}"></td>
+							<td th:text="${plato.usuario.nombres + ' ' + plato.usuario.apellidos}"></td>
 							<td>
 								
 								<a sec:authorize="hasRole('ROLE_CAMARERO')" th:href="@{ '/pedido/del/' + ${plato.id_ped} } "  class="btn btn-danger"> 

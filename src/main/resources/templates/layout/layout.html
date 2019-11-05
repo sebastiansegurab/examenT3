@@ -41,16 +41,16 @@
 							Tipos Platos
 					</a></li>
 					
-					<li  sec:authorize="hasAnyRole('ROLE_GERENTE', 'ROLE_CLIENTE' , 'ROLE_CAMARERO'  )" class="nav-item"><a
+					<li  sec:authorize="hasAnyRole( 'ROLE_CLIENTE'   )" class="nav-item"><a
+						class="nav-link" th:href="@{/usuario/verid}"> <i class="fas fa-home"></i>
+							Pedidos Realizados
+					</a></li>
+					
+					<li  sec:authorize="hasAnyRole('ROLE_GERENTE' , 'ROLE_CAMARERO'  )" class="nav-item"><a
 						class="nav-link" th:href="@{/pedido}"> <i class="fas fa-home"></i>
 							Pedidos Realizados
 					</a></li>
-					<!--  <li sec:authorize="hasRole('ROLE_CLIENTE')" class="nav-item"><a class="nav-link" th:href="@{/verid}">
-						<i class="fas fa-home"></i> Solicitar cita
-					</a></li>
-					<li sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" class="nav-item"><a class="nav-link" th:href="@{/}">
-						<i class="fas fa-home"></i> Gestionar cita
-					</a></li> -->
+					
 					<li sec:authorize="hasRole('ROLE_GERENTE')" class="nav-item"><a class="nav-link" th:href="@{/usuario}">
 						<i class="fas fa-home"></i> Datos Usuario
 					</a></li>
@@ -74,7 +74,7 @@
 				</ul>
 				 <strong><span sec:authorize="isAuthenticated()" 
 					th:text="${#authentication.getPrincipal().getNombres()}">
-						Juancito</span></strong> 
+						</span></strong> 
 			</div>
 		</nav>
 	</header>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "layout/layout :: head"></head>
+<body>
+<header th:replace = "layout/layout :: header"></header>
+
+<div class = "container">
+
+	<h1>Usuario</h1>
+	<p>Id: <span th:text = "${usuario.id}" ></span></p>
+	<p>Apellidos: <span th:text = "${usuario.apellidos}" ></span></p>
+	<p>Nombres: <span th:text = "${usuario.nombres}" ></span></p>
+	<p>Username: <span th:text = "${usuario.username}" ></span></p>
+	
+	
+	<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Nombre Plato</th>
+							<th scope="col">Precio Plato</th>
+							
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody th:each="u: ${usuario.Pedidos}">
+						<tr>
+							<th scope="row" th:text="${u.id_ped}">1</th>
+							<td th:text="${u.plato.nom_pla}">Mark</td>
+							<td th:text="${u.plato.pre_pla}">Otto</td>
+							
+							<td>
+														
+							</td>
+						</tr>						
+					</tbody>
+				</table>
+				
+	
+</div>
+
+<footer th:replace = "layout/layout :: footer"></footer>
+</body>
+</html>

@@ -183,7 +183,7 @@ public class PlatoController {
 			// TODO: handle exception
 		}
 		
-		return "redirect:/pedido";
+		return "redirect:/usuario/verid";
 		
 	}
 	
